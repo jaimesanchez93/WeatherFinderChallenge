@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../App.css";
 import Button from './Button';
+import Info from './Info';
 import Input from './Input';
 
 const { REACT_APP_OPENWEATHERMAP_API_KEY } = process.env;
@@ -55,46 +56,10 @@ const FormContainer = () => {
             <Button type="submit" text="Get Weather" />
          </form>
          <div className="weather__info">
-            {state.city && state.country && (
-               <p className="weather__key">
-                  {" "}
-                        Location:
-                  <span className="weather__value">
-                     {" "}
-                     {state.city}, {state.country}
-                  </span>
-               </p>
-            )}
-            {state.temperature && (
-               <p className="weather__key">
-                  {" "}
-                        Temperature:
-                  <span className="weather__value">
-                     {" "}
-                     {state.temperature}{" "}
-                  </span>
-               </p>
-            )}
-            {state.humidity && (
-               <p className="weather__key">
-                  {" "}
-                        Humidity:
-                  <span className="weather__value">
-                     {" "}
-                     {state.humidity}{" "}
-                  </span>
-               </p>
-            )}
-            {state.description && (
-               <p className="weather__key">
-                  {" "}
-                        Conditions:
-                  <span className="weather__value">
-                     {" "}
-                     {state.description}{" "}
-                  </span>
-               </p>
-            )}
+            {state.city && state.country && <Info label="Location" value={`${state.city}, ${state.country}`} />}
+            {state.temperature && <Info label="Temperature" value={`${state.temperature}`} />}
+            {state.humidity && <Info label="Humidity" value={`${state.humidity}`} />}
+            {state.description && <Info label="Conditions" value={`${state.description}`} />}
             {error && (
                <p className="weather__error">{error}</p>
             )}
