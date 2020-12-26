@@ -7,7 +7,7 @@ import FormContainer from './components/FormContainer';
 const App = () => {
 
    return (
-      <div>
+      <div data-testid="app">
          <div className="wrapper">
             <div className="main">
                <div className="container-fluid">
