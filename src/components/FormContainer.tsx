@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import "../App.css";
+import Input from './Input';
 
 const { REACT_APP_OPENWEATHERMAP_API_KEY } = process.env;
 
@@ -48,8 +49,8 @@ const FormContainer = () => {
    return (
       <div className="col-7 form-container">
          <form onSubmit={getWeather}>
-            <input type="text" name="city" placeholder="Madrid" />
-            <input type="text" name="country" placeholder="es" />
+            <Input type="text" name="city" placeholder="Madrid" />
+            <Input type="text" name="country" placeholder="es" />
             <button>Get Weather</button>
          </form>
          <div className="weather__info">
