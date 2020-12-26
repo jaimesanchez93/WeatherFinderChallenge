@@ -7,7 +7,7 @@ interface InfoProps {
 
 const Info: FC<InfoProps> = ({ label, value }) => {
    return (
-      <p className="weather__key">
+      <p data-testid="info" className="weather__key">
          {" "}
          {label}:
          <span className="weather__value">
