@@ -8,7 +8,7 @@ interface InputProps {
 
 const Input: FC<InputProps> = ({ type, name, placeholder }) => {
    return (
-      <input type={type} name={name} placeholder={placeholder} />
+      <input data-testid="input" type={type} name={name} placeholder={placeholder} />
    )
 };
 
