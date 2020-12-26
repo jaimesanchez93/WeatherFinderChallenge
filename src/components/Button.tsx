@@ -6,7 +6,7 @@ interface IButtonProps {
 }
 
 const Button: FC<IButtonProps> = ({ type, text }) => {
-   return <button type={type}>{text}</button>
+   return <button data-testid="submit-button" type={type}>{text}</button>
 }
 
 export default Button;
