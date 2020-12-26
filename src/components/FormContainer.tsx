@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import "../App.css";
+import { callApi } from '../utils';
 import Button from './Button';
 import Info from './Info';
 import Input from './Input';
 
-const { REACT_APP_OPENWEATHERMAP_API_KEY } = process.env;
 
 
 
@@ -24,10 +24,7 @@ const FormContainer = () => {
          e.preventDefault();
          const city = e.target.elements.city.value || "Madrid";
          const country = e.target.elements.country.value || "es";
-         const api_call = await fetch(
-            `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${REACT_APP_OPENWEATHERMAP_API_KEY}&units=metric`
-         );
-         const data = await api_call.json();
+         const data = await callApi(city, country);
          if (data.cod === 200) {
             setState({
                temperature: data.main.temp,
@@ -36,6 +33,7 @@ const FormContainer = () => {
                humidity: data.main.humidity,
                description: data.weather[0].description,
             });
+            setError("");
          } else {
             setState({
                temperature: undefined,
