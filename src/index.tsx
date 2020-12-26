@@ -14,7 +14,7 @@ class App extends React.Component {
     description: undefined,
     error: undefined,
   };
-  getWeather = async (e) => {
+  getWeather = async (e: any) => {
     e.preventDefault();
     const city = e.target.elements.city.value || "Madrid";
     const country = e.target.elements.country.value || "es";
